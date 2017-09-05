@@ -1,5 +1,18 @@
 {
   "tailf" : {
-    "port" : 8654
+    "port" : 8654,
+    "redis" : {
+      "host"          : "[HOST]",
+      "port"          : 6379,
+      "password"      : "[PASSWORD]",
+      "db"            : 15
+    },
+    "mongo" : {
+        "host"        : "[HOSTNAME]"
+      , "port"        : 27017
+      , "user"        : "[USERNAME]"
+      , "password"    : "[PASSWORD]"
+      , "database"    : "[DATABASE]"
+    }
   }
 }
