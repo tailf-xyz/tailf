@@ -28,6 +28,7 @@
     "mongoose": "^4.11.9",
     "morgan": "^1.8.2",
     "object-hash": "^1.1.8",
+    "pug": "^2.0.0-rc.4",
     "redis": "^2.8.0",
     "redisscan": "^2.0.0",
     "request": "^2.81.0",
