@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/a7medkamel/tailf.io#readme",
   "dependencies": {
+    "ansi-to-html": "^0.6.3",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.2",
+    "tailf-sdk-web": "git+https://github.com/a7medkamel/tailf-sdk-web.git",
     "byline": "^5.0.0",
     "config": "^1.26.2",
     "config-url": "git+https://github.com/a7medkamel/config-url.git",
