@@ -1,6 +1,24 @@
 html
   head
-    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.4.1/asciinema-player.css", integrity="sha256-U2HhSg0ho9FDR5zC8i+mH5P2RygjUFZCVB8hA5GLB/w=", crossorigin="anonymous")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css", integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ", crossorigin="anonymous")
+    style.
+      html, body {
+        width: 100%;
+        height: 100%;
+        
+        margin: 0;
+        padding: 0;
+      }
+      
+      .tailf_io {
+        width: 100%;
+        height: 100%;
+      }
+      
   body
-    asciinema-player(src=url)
-    script(src="embed.js")
+    script(src='/js/lib.js')
+    #tailf_term
+    script.
+      console.log(window.location.origin + '?room=#{id}');
+      (new Tailf.default())
+        .render('tailf_term', { style : { height : '100%' }, uri : window.location.origin + '?room=#{id}' });
