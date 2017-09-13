@@ -2,7 +2,7 @@
   "tailf" : {
     "port" : 8654,
     "log" : {
-      "max_size" : 31457280
+      "max_size" : 1048576
     },
     "redis" : {
       "host"          : "[HOST]",
