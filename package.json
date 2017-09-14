@@ -35,6 +35,7 @@
     "express": "^4.15.4",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
+    "humanize": "0.0.9",
     "lodash": "^4.17.4",
     "mongoose": "^4.11.9",
     "morgan": "^1.8.2",
