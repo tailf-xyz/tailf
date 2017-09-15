@@ -2,6 +2,7 @@
   "tailf" : {
     "port" : 8654,
     "log" : {
+      "dirname" : "./data",
       "max_size" : 1048576
     },
     "redis" : {
