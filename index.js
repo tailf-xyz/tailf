@@ -10,11 +10,14 @@ process.on('uncaughtException', function (err) {
   console.error(err.stack || err.toString());
 });
 
+let { PORT } = process.env;
+
 function main() {
+  let port = PORT || config.getUrlObject('tailf').port;
   return http
-          .listen({ port : config.getUrlObject('tailf').port })
+          .listen({ port })
           .then(() => {
-            winston.info('taskmill-core-tailf [started] :%d', config.getUrlObject('tailf').port);
+            winston.info('taskmill-core-tailf [started] :%d', port);
           });
 }
 
