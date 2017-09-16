@@ -28,9 +28,12 @@ html(lang="en")
         p.small #{humanize.filesize(size)}
       p
         .card
-          .card-header /log/id
+          .card-header Getting started
           .card-block
-            p.card-text Get a log's listing
+            p.card-text Install the tailf.io cli
+            pre npm install tailf.io-cli
+            p.card-text Pipe to tailf.io
+            pre ls -hal / | tailf.io
             //- p.card-text
             //-   | ex:
             //-   code /github.com/a7medkamel/taskmill-help/blob/master/helloworld.js
