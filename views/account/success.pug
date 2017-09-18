@@ -1,0 +1,10 @@
+extends ../layout.pug
+
+block append scripts
+  script.
+    const stripe = Stripe('pk_test_EK3xA550LVBK2s7PTQYUFMgu');
+    
+    const elements = stripe.elements();
+  
+block content
+  h2 ACCOuNT

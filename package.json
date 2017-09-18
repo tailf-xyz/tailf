@@ -53,6 +53,7 @@
     "request-promise": "^4.2.1",
     "socket.io": "^2.0.3",
     "socket.io-redis": "^5.2.0",
+    "stripe": "^5.0.0",
     "style-loader": "^0.18.2",
     "tailf.io-sdk-web": "git+https://github.com/a7medkamel/tailf.io-sdk-web.git",
     "taskmill-core-tailf": "git+https://github.com/a7medkamel/taskmill-core-tailf.git",

@@ -1,43 +1,104 @@
-doctype html
+extends layout.pug
 
-html(lang="en")
-  head
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    meta(http-equiv='x-ua-compatible', content='ie=edge')
+block append stylesheets
+  link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css", integrity="sha256-3YM6A3pH4QFCl9WbSU8oXF5N6W/2ylvW0o2g+Z6TmLQ=", crossorigin="anonymous")
 
-    link(href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/css/tether.min.css", rel="stylesheet", integrity="sha256-y4TDcAD4/j5o4keZvggf698Cr9Oc7JZ+gGMax23qmVA=", crossorigin="anonymous")
-    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
-    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ", crossorigin="anonymous")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/store2/2.5.1/store2.min.js")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js", integrity="sha256-gL1ibrbVcRIHKlCO5OXOPC/lZz/gpdApgQAzskqqXp8=", crossorigin="anonymous")
-    script(src="https://code.jquery.com/jquery-3.2.1.min.js", integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=", crossorigin="anonymous")
-    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js", integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn", crossorigin="anonymous")
+block append scripts
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=", crossorigin="anonymous")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js", integrity="sha256-sZa6ttk3lwj5MNkWzq2VrQ6WFB965Gn0uLe3oUBH2Iw=", crossorigin="anonymous")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js", integrity="sha256-fTZir3QtRzPrhH5KyHm/0hsQqTDswmqYFhXOPN05ulw=", crossorigin="anonymous")
+  script.
+    hljs.initHighlightingOnLoad();
 
-    title Tailf.io - Community Edition
-  body
-    .container
-      header.navbar.navbar-light.navbar-static-top
-        a.navbar-brand Tailf.io
-        
-      .jumbotron
-        h1.display-3 Tailf.io
-          | &nbsp;&nbsp;
-          i.fa.fa-fire
-        p.lead Community Edition
-        p.small #{humanize.filesize(size)}
-      p
-        .card
-          .card-header Getting started
-          .card-block
-            p.card-text Install the tailf.io cli
-            pre npm install tailf.io-cli
-            p.card-text Pipe to tailf.io
-            pre ls -hal / | tailf.io
-            //- p.card-text
-            //-   | ex:
-            //-   code /github.com/a7medkamel/taskmill-help/blob/master/helloworld.js
-            //-   | &nbsp;
-            //-   a.btn.btn-primary(href='/github.com/a7medkamel/taskmill-help/blob/master/helloworld.js')
-            //-     i.fa.fa-rocket &nbsp;&nbsp;
-            //-     | Try it!
+block content
+  .container
+    header.navbar.navbar-light.navbar-static-top
+      a.navbar-brand Tailf.io
+      
+    .jumbotron
+      h1.display-3 Tailf.io
+        | &nbsp;&nbsp;
+        i.fa.fa-fire
+      p.small #{humanize.filesize(size)}
+      pre
+        code.bash
+          | npm install tailf.io-cli
+      pre
+        code.bash
+          | ls -hal / | tailf.io
+          |
+          span(style="background-color: #d33682; color: #fff; padding: 3px 0px 1px;")= " tailf.io > "
+          |  https://tailf.io/log/GN3eyV7y3FDLSPZJFZfwFOhGdhrc6XkE
+  //-       
+  //- .container
+  //-   .row 
+  //-     .col-sm-3
+  //-       .card
+  //-         .card-block
+  //-           h4.card-title Free
+  //-           //- p Anonymouse access
+  //-           //- p unlimited log files, max #{humanize.filesize(limit_per_file)} per file
+  //-         ul.list-group.list-group-flush
+  //-           li.list-group-item Max #{humanize.filesize(limit_per_file, undefined, 0)} per file
+  //-           li.list-group-item Unlimited storage
+  //-           li.list-group-item 1 day retention
+  //-           
+  //-     .col-sm-3
+  //-       .card
+  //-         .card-block
+  //-           h4.card-title 1 GB / $5
+  //-         ul.list-group.list-group-flush
+  //-           li.list-group-item Max 10MB per file
+  //-           li.list-group-item 1 GB Storage
+  //-           li.list-group-item 1 month retention
+  //-         .card-block.text-right
+  //-           form(action="/account/subscribe", method="POST")
+  //-             script(
+  //-               src="https://checkout.stripe.com/checkout.js"
+  //-               , class="stripe-button"
+  //-               , data-key="pk_test_EK3xA550LVBK2s7PTQYUFMgu"
+  //-               , data-name="TAILF 1GB"
+  //-               , data-description="1GB, 10mb per file, 1 month retention"
+  //-               , data-amount="500"
+  //-               , data-label="Sign Up!"
+  //-             )
+  //-             
+  //-     .col-sm-3
+  //-       .card
+  //-         .card-block
+  //-           h4.card-title 3 GB / $12
+  //-         ul.list-group.list-group-flush
+  //-           li.list-group-item Max 25MB per file
+  //-           li.list-group-item 2 GB Storage
+  //-           li.list-group-item 1 month retention
+  //-         .card-block.text-right
+  //-           form(action="/account/subscribe", method="POST")
+  //-             script(
+  //-               src="https://checkout.stripe.com/checkout.js"
+  //-               , class="stripe-button"
+  //-               , data-key="pk_test_EK3xA550LVBK2s7PTQYUFMgu"
+  //-               , data-name="TAILF 3GB"
+  //-               , data-description="3GB, 25mb per file, 1 month retention"
+  //-               , data-amount="1200"
+  //-               , data-label="Sign Up!"
+  //-             )
+  //- 
+  //-     .col-sm-3
+  //-       .card
+  //-         .card-block
+  //-           h4.card-title 5 GB / $35
+  //-         ul.list-group.list-group-flush
+  //-           li.list-group-item Max 200MB per file
+  //-           li.list-group-item 5 GB Storage
+  //-           li.list-group-item 2 month retention
+  //-         .card-block.text-right
+  //-           form(action="/account/subscribe", method="POST")
+  //-             script(
+  //-               src="https://checkout.stripe.com/checkout.js"
+  //-               , class="stripe-button"
+  //-               , data-key="pk_test_EK3xA550LVBK2s7PTQYUFMgu"
+  //-               , data-name="TAILF 5GB"
+  //-               , data-description="5GB, 100mb per file, 2 month retention"
+  //-               , data-amount="3500"
+  //-               , data-label="Sign Up!"
+  //-             )

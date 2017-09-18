@@ -1,37 +1,36 @@
-html
-  head
-    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css", integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ", crossorigin="anonymous")
-  body
-    .container
-      p
-        .card
-          .card-header #{key}
-          .card-block
-            p.card-text
-              pre size : #{humanize.filesize(size)}
-            p.card-text
-              pre record : #{JSON.stringify(rec, null, 2)}
-      .list-group 
-        a.list-group-item.list-group-item-action.flex-column.align-items-start(href='/log/' + key + '/stream')
-          .d-flex.w-100.justify-content-between
-            h5.mb-1 Live Terminal
-          p.mb-1 watch live terminal updates to the log file
-        a.list-group-item.list-group-item-action.flex-column.align-items-start(href='/log/' + key + '/text')
-          .d-flex.w-100.justify-content-between
-            h5.mb-1 Text
-          p.mb-1 text of the log file as of now
-        a.list-group-item.list-group-item-action.flex-column.align-items-start(href='/log/' + key + '/html')
-          .d-flex.w-100.justify-content-between
-            h5.mb-1 HTML
-          p.mb-1 HTML formated ascii output
-        a.list-group-item.list-group-item-action.flex-column.align-items-start(href='/log/' + key + '/play')
-          .d-flex.w-100.justify-content-between
-            h5.mb-1 Play
-          p.mb-1 play back as an asciicast
-            //- p.card-text
-            //-   | ex:
-            //-   code /github.com/a7medkamel/taskmill-help/blob/master/helloworld.js
-            //-   | &nbsp;
-            //-   a.btn.btn-primary(href='/github.com/a7medkamel/taskmill-help/blob/master/helloworld.js')
-            //-     i.fa.fa-rocket &nbsp;&nbsp;
-            //-     | Try it!
+extends ../layout.pug
+
+block content
+  .container
+    p
+      .card
+        .card-header #{key}
+        .card-block
+          p.card-text
+            pre size : #{humanize.filesize(size)}
+          p.card-text
+            pre record : #{JSON.stringify(rec, null, 2)}
+    .list-group 
+      a.list-group-item.list-group-item-action.flex-column.align-items-start(href='/log/' + key + '/stream')
+        .d-flex.w-100.justify-content-between
+          h5.mb-1 Live Terminal
+        p.mb-1 watch live terminal updates to the log file
+      a.list-group-item.list-group-item-action.flex-column.align-items-start(href='/log/' + key + '/text')
+        .d-flex.w-100.justify-content-between
+          h5.mb-1 Text
+        p.mb-1 text of the log file as of now
+      a.list-group-item.list-group-item-action.flex-column.align-items-start(href='/log/' + key + '/html')
+        .d-flex.w-100.justify-content-between
+          h5.mb-1 HTML
+        p.mb-1 HTML formated ascii output
+      a.list-group-item.list-group-item-action.flex-column.align-items-start(href='/log/' + key + '/play')
+        .d-flex.w-100.justify-content-between
+          h5.mb-1 Play
+        p.mb-1 play back as an asciicast
+          //- p.card-text
+          //-   | ex:
+          //-   code /github.com/a7medkamel/taskmill-help/blob/master/helloworld.js
+          //-   | &nbsp;
+          //-   a.btn.btn-primary(href='/github.com/a7medkamel/taskmill-help/blob/master/helloworld.js')
+          //-     i.fa.fa-rocket &nbsp;&nbsp;
+          //-     | Try it!

@@ -3,7 +3,7 @@
     "port" : 8654,
     "log" : {
       "dirname" : "./disk",
-      "max_size" : 1048576
+      "limit_per_file" : 102400
     },
     "redis" : {
       "host"          : "[HOST]",
