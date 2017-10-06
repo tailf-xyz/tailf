@@ -20,6 +20,9 @@ block append scripts
 block content
     #tailf_term
     script.
-      console.log(window.location.origin + '?room=#{id}');
+      var uri   = window.location.origin + '?room=#{id}'
+        , token = '#{token}'
+        ;
+      
       (new Tailf.default())
-        .render('tailf_term', { style : { height : '100%' }, uri : window.location.origin + '?room=#{id}' });
+        .render('tailf_term', { style : { height : '100%' }, uri : uri, token : token });
