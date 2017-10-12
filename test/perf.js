@@ -16,7 +16,7 @@ if (cluster.isMaster) {
 } else {
   let _             = require('lodash')
     , randtoken     = require('rand-token')
-    , { Producer }  = require('taskmill-core-tailf')
+    , { Producer }  = require('tailf.io-sdk')
     ;
 
   let s = (new Producer()).stream({});

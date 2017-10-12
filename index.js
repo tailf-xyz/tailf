@@ -17,7 +17,7 @@ function main() {
   return http
           .listen({ port })
           .then(() => {
-            winston.info('taskmill-core-tailf [started] :%d', port);
+            winston.info('tailf.io [started] :%d', port);
           });
 }
 
