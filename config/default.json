@@ -7,7 +7,6 @@
   "tailf" : {
     "port" : 8654,
     "origin"    : "https://tailf.io",
-    "write_url" : "https://write.tailf.io",
     "log" : {
       "dirname" : "./disk",
       "limit_per_file" : 102400
