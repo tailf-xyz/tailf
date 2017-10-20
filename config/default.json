@@ -8,8 +8,12 @@
     "port" : 8654,
     "origin"    : "https://tailf.io",
     "log" : {
-      "dirname" : "./disk",
-      "limit_per_file" : 102400
+      "dirname" : "./disk"
+    },
+    "metering" : {
+      "*" : {
+        "limit_per_file" : 102400
+      }
     },
     "redis" : {
       "host"          : "[HOST]",
