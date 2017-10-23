@@ -1,0 +1,25 @@
+extends ../layout.pug
+
+block content
+  .container
+    :markdown-it
+      ### Metadata
+      ```json
+      {
+        "meta" : {
+          "cmd"           : "process_name",
+          "pid"           : "process_id",
+          "ip"            : "11.123.1.123",
+          "hostname"      : "foobar",
+          "parent"        : "autoqa",
+          "parent_id"     : "507f1f77bcf86cd799439011",
+          "tracking_id"   : "7cb4bb0d-0ca2-4fd6-ab51-931cdc64b249"
+        }
+      }
+      ```
+    //- "account" : "2zkXLcZ5RdkL4vjjcCNRNXsbWM9pYpDu",
+    //- "rows" : 24, 
+    //- "columns" : 80, 
+    //- "id" : "fjDGtTra8pNtXu7bfcyN2vBkBB9SGY8X", 
+    //- "host" : "https://tailf.io",
+    //- "keep_open" : "false"
