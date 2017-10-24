@@ -1,4 +1,4 @@
-extends layout.pug
+extends ./layout/common.pug
 
 block append stylesheets
   link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css", integrity="sha256-3YM6A3pH4QFCl9WbSU8oXF5N6W/2ylvW0o2g+Z6TmLQ=", crossorigin="anonymous")
@@ -14,19 +14,75 @@ block content
   .container
     .jumbotron
       h1.display-3 Tailf.io
-        | &nbsp;&nbsp;
-        i.fa.fa-fire
-      p.small #{humanize.filesize(size)}
-      pre
-        code.bash
-          | npm install tailf.io-cli
-      pre
-        code.bash
-          | ls -hal / | tailf.io
-          |
-          span(style="background-color: #d33682; color: #fff; padding: 3px 0px 1px;")= " tailf.io > "
-          |  https://tailf.io/GN3eyV7y3FDLSPZJFZfwFOhGdhrc6XkE
+        //- | &nbsp;&nbsp;
+        //- i.fa.fa-fire
+      :markdown-it
+        This is an `alpha` release of tailf.io
+        
+        10kb file limit, 24 hour retention
+      p.small.pull-right #{humanize.filesize(size)}
       
+  .container
+    :markdown-it(html)
+      ### Terminal Pipe
+      Install the Tailf.io CLI
+      
+      ```bash
+      npm install tailf.io-cli
+      ```
+      
+      Run a command and pipe it to tailf.io
+      <pre>
+      <code>ls -hal / | tailf.io
+      
+      <span style="background-color: #d33682; color: #fff; padding: 4px 0px">&nbsp;tailf.io >&nbsp;</span> https://tailf.io/p0M89VFymysTjrJL6A5B42yWiVDHbEWB
+      </code>
+      <pre>
+      
+  .container
+    :markdown-it(html)
+      ### Stream Docker
+      Install the Tailf.io CLI
+      
+      ```bash
+      npm install tailf.io-cli
+      ```
+      
+      <pre>
+      <code>docker logs 87d3698e5dab --follow | tailf.io
+      
+      <span style="background-color: #d33682; color: #fff; padding: 4px 0px">&nbsp;tailf.io >&nbsp;</span> https://tailf.io/p0M89VFymysTjrJL6A5B42yWiVDHbEWB
+      </code>
+      <pre>
+      
+  .container
+    :markdown-it
+      ### Stream Docker Programmatically
+      Install the Tailf.io SDK
+      
+      ```bash
+      npm install tailf.io-sdk
+      ```
+      
+      ```javascript
+      let { Producer } = require('tailf.io-sdk');
+      
+      let tailf               = new Producer()
+        , { stdout, stderr }  = tailf.streams();
+        ;
+      
+      // assumes container is a dockerode (https://github.com/apocas/dockerode) container instance
+      container
+        .attach({ stream : true, stdout : true, stderr : true}, (stream) => {
+          container.modem.demuxStream(stream, stdout, stderr);
+        });
+        
+      tailf.uri((err, uri) => {
+        console.log(uri);
+        // will console.log https://tailf.io/p0M89VFymysTjrJL6A5B42yWiVDHbEWB
+      });
+      
+      ```
     
   //-       
   //- .container

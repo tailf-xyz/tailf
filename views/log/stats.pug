@@ -1,15 +1,14 @@
-extends ../layout.pug
+extends ../layout/common.pug
 
 block content
   .container
     p
       .card
         .card-header #{key}
-        .card-block
-          p.card-text
-            pre size : #{humanize.filesize(size)}
-          p.card-text
-            pre record : #{JSON.stringify(rec, null, 2)}
+        .card-body
+          pre.card-text size : #{humanize.filesize(size)}
+          //- p.card-text
+          pre.card-text record : #{JSON.stringify(rec, null, 2)}
     .list-group 
       a.list-group-item.list-group-item-action.flex-column.align-items-start(href=`/${key}/stream?token=${token}`)
         .d-flex.w-100.justify-content-between
