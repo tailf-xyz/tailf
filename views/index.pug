@@ -2,6 +2,10 @@ extends ./layout/common.pug
 
 block append stylesheets
   link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css", integrity="sha256-3YM6A3pH4QFCl9WbSU8oXF5N6W/2ylvW0o2g+Z6TmLQ=", crossorigin="anonymous")
+  style.
+    .container {
+      margin-bottom: 2em;
+    }
 
 block append scripts
   script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=", crossorigin="anonymous")
@@ -13,16 +17,24 @@ block append scripts
 block content
   .container
     .jumbotron
-      h1.display-3 tailf.io
+      h1.display-1 tailf.io
+      h2 tailf for the cloud
         //- | &nbsp;&nbsp;
         //- i.fa.fa-fire
       :markdown-it
-        `alpha` product, 10kb file limit, 24 hour retention
+        `alpha` 500kb file limit, 24 hour retention
       p.small.pull-right #{humanize.filesize(size)}
+    
+  .container
+    :markdown-it(html)
+      ##### WHY
+      
+      You run processes in the cloud and you want to `monitor` and `share` their logs.
+
       
   .container
     :markdown-it(html)
-      ### Terminal Pipe
+      ##### TERMINAL PIPE
       Install the tailf.io CLI
       
       ```bash
@@ -30,32 +42,28 @@ block content
       ```
       
       Run a command and pipe it to tailf.io
-      <pre>
-      <code>ls -hal / | tailf.io
+      <pre><code>ls -hal / | tailf.io
       
-      <span style="background-color: #d33682; color: #fff; padding: 4px 0px">&nbsp;tailf.io >&nbsp;</span> https://tailf.io/p0M89VFymysTjrJL6A5B42yWiVDHbEWB
-      </code>
-      <pre>
+      <span style="background-color: #d33682; color: #fff; padding: 4px 0px">&nbsp;tailf.io >&nbsp;</span> https://tailf.io/uHo5qEc96R0rLWEAgMmT1nXoHkjDzcwS
+      </code></pre>
       
   .container
     :markdown-it(html)
-      ### Stream Docker
+      ##### STREAM DOCKER
       Install the tailf.io CLI
       
       ```bash
       npm install tailf.io-cli
       ```
       
-      <pre>
-      <code>docker logs 87d3698e5dab --follow | tailf.io
+      <pre><code>docker logs 87d3698e5dab --follow | tailf.io
       
-      <span style="background-color: #d33682; color: #fff; padding: 4px 0px">&nbsp;tailf.io >&nbsp;</span> https://tailf.io/p0M89VFymysTjrJL6A5B42yWiVDHbEWB
-      </code>
-      <pre>
+      <span style="background-color: #d33682; color: #fff; padding: 4px 0px">&nbsp;tailf.io >&nbsp;</span> https://tailf.io/uHo5qEc96R0rLWEAgMmT1nXoHkjDzcwS
+      </code></pre>
       
   .container
     :markdown-it
-      ### Stream Docker Programmatically
+      ##### STREAM DOCKER PROGRAMMATICALLY
       Install the tailf.io SDK
       
       ```bash
@@ -77,7 +85,7 @@ block content
         
       tailf.uri((err, uri) => {
         console.log(uri);
-        // will console.log https://tailf.io/p0M89VFymysTjrJL6A5B42yWiVDHbEWB
+        // will console.log https://tailf.io/uHo5qEc96R0rLWEAgMmT1nXoHkjDzcwS
       });
       
       ```
