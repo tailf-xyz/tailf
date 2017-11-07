@@ -18,11 +18,11 @@ block append scripts
   script(src='/js/lib.js')
 
 block content
-    #tailf_term
+    #tailf_term(style="display:flex")
     script.
       var uri   = window.location.origin + '/#{id}'
         , token = '#{token}'
         ;
       
       (new Tailf.default())
-        .render('tailf_term', { style : { height : '100%' }, uri : uri, token : token });
+        .render('tailf_term', { uri : uri, token : token });
