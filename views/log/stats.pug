@@ -2,6 +2,13 @@ extends ../layout/common.pug
 
 block content
   .container
+    p
+      .card
+        .card-header #{key}
+        .card-body
+          pre.card-text size : #{humanize.filesize(size)}
+          //- p.card-text
+          pre.card-text record : #{JSON.stringify(rec, null, 2)}
     ul.nav.nav-pills
       li.nav-item
         a.nav-link.active(href=stream_url) Live Terminal
@@ -13,13 +20,6 @@ block content
         a.nav-link(href=asciicast_url) Play
       li.nav-item
         a.nav-link(href=download_url) Download
-    p
-      .card
-        .card-header #{key}
-        .card-body
-          pre.card-text size : #{humanize.filesize(size)}
-          //- p.card-text
-          pre.card-text record : #{JSON.stringify(rec, null, 2)}
     p
       .card
         .card-body
