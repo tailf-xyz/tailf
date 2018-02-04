@@ -1,8 +1,43 @@
 extends ../layout/minimal.pug
 
+block append stylesheets
+  style.
+    html, body {
+      height: 100%;
+      background-color: #000;
+    }
+    
+    .html_terminal {
+      /*background-color: #000;*/
+      color: #fff;
+      font-family: courier-new, courier, monospace;
+      font-feature-settings: "liga" 0;
+    }
+
 block content
   .container
     pre(style="white-space: pre-wrap;")
-      code
+      code.html_terminal
         each chunk in chunks
           !=chunk
+
+//- mini display
+//- body
+  display: block;
+  clip-path: polygon(0 calc(100% - 100px), 100% calc(100% - 100px), 100% 100%, 0% 100%);
+  transform: translate(0, calc(-1 * (100% - 100px)));
+    
+//- wrapper div
+  transform: scale(0.2);
+  transform-origin: left top;
+  height: calc(100px/0.2);
+  
+//- v2
+
+//- body nothing
+
+//- wrapper
+  transform: scale(0.2);
+  transform-origin: left top;
+  position: relative;
+  top: calc(-1/0.2 * (100% - 100px));

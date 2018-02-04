@@ -10,9 +10,13 @@
     "log" : {
       "dirname" : "./disk"
     },
+    "chunk" : {
+      "size" : 50000
+    },
     "metering" : {
       "*" : {
-        "limit_per_file" : 102400
+        "limit_per_file" : 102400,
+        "limit_metadata" : 102400
       }
     },
     "redis" : {
