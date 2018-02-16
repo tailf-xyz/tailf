@@ -4,9 +4,9 @@ var fs    = require('fs')
 
 module.exports = {
   jwt : {
-      key       : fs.readFileSync('/Users/ahmedkamel/Documents/GitHub/taskmill-ops/deploy/saltstack/file_root/.key/jwt/key', 'utf-8')
-    , public    : fs.readFileSync('/Users/ahmedkamel/Documents/GitHub/taskmill-ops/deploy/saltstack/file_root/.key/jwt/key.pem', 'utf-8')
-    , expiresIn : 14400 // 60 * 60 * 4 -- 4 hours
+    //   key       : fs.readFileSync('/home/nodejs/.key/jwt/key', 'utf-8')
+    // , public    : fs.readFileSync('/home/nodejs/.key/jwt/key.pem', 'utf-8')
+      expiresIn : 14400 // 60 * 60 * 4 -- 4 hours
   },
   tailf : {
     chunk : {
