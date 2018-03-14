@@ -7,6 +7,7 @@
   "tailf" : {
     "port" : 8654,
     "origin"    : "https://tailf.io",
+    "ls_limit"  : 50,
     "log" : {
       "dirname" : "./disk"
     },
@@ -23,14 +24,8 @@
       "host"          : "[HOST]",
       "port"          : 6379,
       "password"      : "[PASSWORD]",
-      "db"            : 15
-    },
-    "mongo" : {
-        "host"        : "[HOSTNAME]"
-      , "port"        : 27017
-      , "user"        : "[USERNAME]"
-      , "password"    : "[PASSWORD]"
-      , "database"    : "[DATABASE]"
+      "db"            : 15,
+      "db_index"      : 14
     }
   }
 }
