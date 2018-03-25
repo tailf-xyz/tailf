@@ -10,6 +10,10 @@ process.on('uncaughtException', function (err) {
   console.error(err.stack || err.toString());
 });
 
+process.on('unhandledRejection', (reason, p) => {
+  console.error(reason.stack || reason.toString());
+});
+
 let { PORT } = process.env;
 
 function main() {
