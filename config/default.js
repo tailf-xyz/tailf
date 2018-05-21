@@ -1,5 +1,6 @@
 var fs    = require('fs')
   , bytes = require('bytes')
+  , ms    = require('ms')
   ;
 
 module.exports = {
@@ -14,8 +15,9 @@ module.exports = {
     },
     metering : {
       '*' : {
-          limit_per_file : bytes('100kb')
-        , limit_metadata : bytes('20kb')
+          limit_per_file  : bytes('100kb')
+        , limit_metadata  : bytes('20kb')
+        , ttl             : ms('15d')
       }
     }
   }
