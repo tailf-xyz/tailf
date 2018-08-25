@@ -67,6 +67,7 @@
     "socket.io-emitter": "^3.1.1",
     "socket.io-redis": "^5.2.0",
     "socketio-jwt": "^4.5.0",
+    "sticky-session": "^1.1.2",
     "stripe": "^5.4.0",
     "style-loader": "^0.20.2",
     "tailf.io-sdk-web": "git+https://github.com/a7medkamel/tailf.io-sdk-web.git",
