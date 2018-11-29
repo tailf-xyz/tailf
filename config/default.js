@@ -10,6 +10,7 @@ module.exports = {
     "iss"       : "tailf.io"
   },
   "tailf": {
+    "cors" :{ },
     "port": 8654,
     "origin": "https://tailf.io",
     "ls_limit": 50,
