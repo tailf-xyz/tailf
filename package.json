@@ -83,7 +83,6 @@
   },
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "tailf.io-sdk": "git+https://github.com/a7medkamel/tailf.io-sdk.git",
     "webpack-dev-server": "^2.11.1"
   }
 }
