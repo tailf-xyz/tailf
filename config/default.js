@@ -17,7 +17,7 @@ module.exports = {
     "origin": "http://localhost:8654",
     "ls_limit": 50,
     "log": {
-      "dirname": "/disk"
+      "dirname": "./data"
     },
     "chunk": {
       "size": bytes('50kb')
