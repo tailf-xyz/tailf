@@ -5,17 +5,17 @@ block append stylesheets
     html, body {
       width: 100%;
       height: 100%;
-      
+
       margin: 0;
       padding: 0;
     }
-    
+
     .tailf_io, .ReactXTerm, #tailf_term {
       height: 100%;
     }
-    
-block append scripts  
-  script(src='/js/lib.js')
+
+block append scripts
+  script(src='/js/bundle.js')
 
 block content
     #tailf_term(style="display:flex")
@@ -23,6 +23,6 @@ block content
       var uri   = window.location.origin + '/#{id}'
         , token = '#{token}'
         ;
-      
+
       (new Tailf.default())
         .render('tailf_term', { uri : uri, token : token, style : { heigh : '100%' } });
