@@ -13,7 +13,7 @@ module.exports = {
     "cors": {
       origin : [/\.breadboard\.io$/]
     },
-    "bodyParser": {
+    "body_parser": {
       "limit": "1024kb"
     },
     "port": 8654,
