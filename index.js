@@ -1,7 +1,7 @@
-var config    = require('config-url')
-  , winston   = require('winston')
-  , Promise   = require('bluebird')
-  , http      = require('./lib')
+var config_url  = require('config-url')
+  , winston     = require('winston')
+  , Promise     = require('bluebird')
+  , http        = require('./lib')
   ;
 
 Promise.longStackTraces();
@@ -14,10 +14,8 @@ process.on('unhandledRejection', (reason, p) => {
   console.error(reason.stack || reason.toString());
 });
 
-let { PORT } = process.env;
-
 function main() {
-  let port = PORT || config.getUrlObject('tailf').port;
+  let port = config_url.url('tailf').port;
   return http
           .listen({ port })
           .then(() => {

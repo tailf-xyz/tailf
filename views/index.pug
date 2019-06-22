@@ -18,148 +18,69 @@ block content
   .container
     .jumbotron
       h1.display-1 tailf.io
-      h2 tailf for the cloud
-        //- | &nbsp;&nbsp;
-        //- i.fa.fa-fire
-      :markdown-it
-        `alpha` 500kb file limit, 24 hour retention
-      p.small.pull-right #{humanize.filesize(size)}
-    
+      h2 tail -f for the cloud
+
   .container
     :markdown-it(html=true)
       ##### WHY
-      
+
       You run processes in the cloud and you want to `monitor` and `share` their logs.
 
-      
+
   .container
     :markdown-it(html=true)
       ##### TERMINAL PIPE
       Install the tailf.io CLI
-      
+
       ```bash
       npm install tailf.io-cli
       ```
-      
+
       Run a command and pipe it to tailf.io
       <pre><code>ls -hal / | tailf.io
-      
+
       <span style="background-color: #d33682; color: #fff; padding: 4px 0px">&nbsp;tailf.io >&nbsp;</span> https://tailf.io/uHo5qEc96R0rLWEAgMmT1nXoHkjDzcwS
       </code></pre>
-      
+
   .container
     :markdown-it(html=true)
       ##### STREAM DOCKER
       Install the tailf.io CLI
-      
+
       ```bash
       npm install tailf.io-cli
       ```
-      
+
       <pre><code>docker logs 87d3698e5dab --follow | tailf.io
-      
+
       <span style="background-color: #d33682; color: #fff; padding: 4px 0px">&nbsp;tailf.io >&nbsp;</span> https://tailf.io/uHo5qEc96R0rLWEAgMmT1nXoHkjDzcwS
       </code></pre>
-      
+
   .container
     :markdown-it
       ##### STREAM DOCKER PROGRAMMATICALLY
       Install the tailf.io SDK
-      
+
       ```bash
       npm install tailf.io-sdk
       ```
-      
+
       ```javascript
       let { Producer } = require('tailf.io-sdk');
-      
+
       let tailf               = new Producer()
         , { stdout, stderr }  = tailf.streams();
         ;
-      
+
       // assumes container is a dockerode (https://github.com/apocas/dockerode) container instance
       container
         .attach({ stream : true, stdout : true, stderr : true}, (stream) => {
           container.modem.demuxStream(stream, stdout, stderr);
         });
-        
+
       tailf.uri((err, uri) => {
         console.log(uri);
         // will console.log https://tailf.io/uHo5qEc96R0rLWEAgMmT1nXoHkjDzcwS
       });
-      
+
       ```
-    
-  //-       
-  //- .container
-  //-   .row 
-  //-     .col-sm-3
-  //-       .card
-  //-         .card-block
-  //-           h4.card-title Free
-  //-           //- p Anonymouse access
-  //-           //- p unlimited log files, max #{humanize.filesize(limit_per_file)} per file
-  //-         ul.list-group.list-group-flush
-  //-           li.list-group-item Max #{humanize.filesize(limit_per_file, undefined, 0)} per file
-  //-           li.list-group-item Unlimited storage
-  //-           li.list-group-item 1 day retention
-  //-           
-  //-     .col-sm-3
-  //-       .card
-  //-         .card-block
-  //-           h4.card-title 1 GB / $5
-  //-         ul.list-group.list-group-flush
-  //-           li.list-group-item Max 10MB per file
-  //-           li.list-group-item 1 GB Storage
-  //-           li.list-group-item 1 month retention
-  //-         .card-block.text-right
-  //-           form(action="/account/subscribe", method="POST")
-  //-             script(
-  //-               src="https://checkout.stripe.com/checkout.js"
-  //-               , class="stripe-button"
-  //-               , data-key="pk_test_EK3xA550LVBK2s7PTQYUFMgu"
-  //-               , data-name="TAILF 1GB"
-  //-               , data-description="1GB, 10mb per file, 1 month retention"
-  //-               , data-amount="500"
-  //-               , data-label="Sign Up!"
-  //-             )
-  //-             
-  //-     .col-sm-3
-  //-       .card
-  //-         .card-block
-  //-           h4.card-title 3 GB / $12
-  //-         ul.list-group.list-group-flush
-  //-           li.list-group-item Max 25MB per file
-  //-           li.list-group-item 2 GB Storage
-  //-           li.list-group-item 1 month retention
-  //-         .card-block.text-right
-  //-           form(action="/account/subscribe", method="POST")
-  //-             script(
-  //-               src="https://checkout.stripe.com/checkout.js"
-  //-               , class="stripe-button"
-  //-               , data-key="pk_test_EK3xA550LVBK2s7PTQYUFMgu"
-  //-               , data-name="TAILF 3GB"
-  //-               , data-description="3GB, 25mb per file, 1 month retention"
-  //-               , data-amount="1200"
-  //-               , data-label="Sign Up!"
-  //-             )
-  //- 
-  //-     .col-sm-3
-  //-       .card
-  //-         .card-block
-  //-           h4.card-title 5 GB / $35
-  //-         ul.list-group.list-group-flush
-  //-           li.list-group-item Max 200MB per file
-  //-           li.list-group-item 5 GB Storage
-  //-           li.list-group-item 2 month retention
-  //-         .card-block.text-right
-  //-           form(action="/account/subscribe", method="POST")
-  //-             script(
-  //-               src="https://checkout.stripe.com/checkout.js"
-  //-               , class="stripe-button"
-  //-               , data-key="pk_test_EK3xA550LVBK2s7PTQYUFMgu"
-  //-               , data-name="TAILF 5GB"
-  //-               , data-description="5GB, 100mb per file, 2 month retention"
-  //-               , data-amount="3500"
-  //-               , data-label="Sign Up!"
-  //-             )

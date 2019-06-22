@@ -10,12 +10,8 @@ module.exports = {
     "iss"       : "tailf.io"
   },
   "tailf": {
-    "cors": {
-      origin : [/\.breadboard\.io$/]
-    },
     "port": 8654,
     "origin": "http://localhost:8654",
-    "ls_limit": 50,
     "log": {
       "dirname": "./data"
     },
