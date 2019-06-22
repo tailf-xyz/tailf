@@ -10,6 +10,12 @@ module.exports = {
     "iss"       : "tailf.io"
   },
   "tailf": {
+    "cors": {
+      origin : [/\.breadboard\.io$/]
+    },
+    "body_parser": {
+      "limit": "1024kb"
+    },
     "port": 8654,
     "origin": "http://localhost:8654",
     "log": {
