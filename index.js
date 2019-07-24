@@ -1,17 +1,17 @@
 var config_url  = require('config-url')
-  , winston     = require('winston')
   , Promise     = require('bluebird')
+  , { logger }  = require('./lib/logger')
   , http        = require('./lib')
   ;
 
 Promise.longStackTraces();
 
 process.on('uncaughtException', function (err) {
-  console.error(err.stack || err.toString());
+  logger.error(err);
 });
 
 process.on('unhandledRejection', (reason, p) => {
-  console.error(reason.stack || reason.toString());
+  logger.error(reason);
 });
 
 function main() {
@@ -19,7 +19,7 @@ function main() {
   return http
           .listen({ port })
           .then(() => {
-            winston.info('tailf.io [started] :%d', port);
+            logger.info('tailf.io [started] :%d', port);
           });
 }
 
