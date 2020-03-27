@@ -47,7 +47,7 @@
     "rand-token": "^0.4.0",
     "redis": "^2.8.0",
     "redisscan": "^2.0.0",
-    "rotating-file-stream": "^1.4.1",
+    "rotating-file-stream": "^2.0.2",
     "snappy-msgpack-stream": "^4.0.0",
     "socket.io": "^2.2.0",
     "socket.io-emitter": "^3.1.1",
