@@ -20,7 +20,7 @@
   "homepage": "https://github.com/a7medkamel/tailf.io#readme",
   "dependencies": {
     "ansi-to-html": "^0.6.10",
-    "async": "^2.6.2",
+    "async": "^3.2.2",
     "auth-header": "^1.0.0",
     "bluebird": "^3.5.4",
     "body-parser": "^1.19.0",
