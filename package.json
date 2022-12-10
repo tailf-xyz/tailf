@@ -31,7 +31,7 @@
     "config-url": "git+https://git@github.com/a7medkamel/node-config-url.git",
     "cors": "^2.8.5",
     "create-output-stream": "0.0.1",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "humanize": "0.0.9",
     "jsonwebtoken": "^8.5.1",
     "jstransformer-highlight": "^1.0.1",
